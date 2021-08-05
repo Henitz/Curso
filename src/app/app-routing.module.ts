@@ -5,8 +5,9 @@ import { DashComponent } from './dash/dash.component';
 import { FormComponent } from './form/form.component';
 import { ListComponent } from './list/list.component';
 
+
 const routes: Routes = [
-  {path: '', redirectTo: 'dash', pathMatch: ' full'},
+  {path: '', redirectTo: 'dash', pathMatch: 'full'},
   {path: 'clientes/form', component: FormComponent},
   {path: 'clientes', component: ListComponent},
   {path: 'dash', component: DashComponent},

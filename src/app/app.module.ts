@@ -7,6 +7,7 @@ import { ListComponent } from './list/list.component';
 import { OneComponent } from './one/one.component';
 import { FormComponent } from './form/form.component';
 import { DashComponent } from './dash/dash.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DashComponent } from './dash/dash.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
