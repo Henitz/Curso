@@ -1,1 +1,36 @@
-<p>list works!</p>
+<!--<p>list works!</p> -->
+ <!-- <div *ngFor ="let cliente of clientes" >
+  {{cliente.id}} - {{cliente.nome}} - {{cliente.quantidadeFuncionarios}}
+</div> -->
+<button (click)="form()" class="btn btn-light btn">
+  <fa-icon [icon]=faPlusSquare></fa-icon>
+  Adicionar  Cliente
+</button>
+
+<div class="row">
+  <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Nº de Funcionários</th>
+            <th scope="col" colspane= "3"></th>
+          </thead>
+          <tbody>
+            <tr *ngFor ="let cliente of clientes">
+              <th scope="row">{{cliente.id}}</th>
+              <td>{{cliente.nome}}</td>
+              <td>{{cliente.quantidadeFuncionarios}}</td>
+              <td style="white-space: nowrap;">
+                <!-- <button class="btn btn-light" (click="one(cliente.id)")>
+                  <fa-icon [icon]="faEye"></fa-icon>
+                </button> -->
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>

@@ -1,1 +1,26 @@
-<p>form works!</p>
+<!-- <p>form works!</p> -->
+
+<div class="alert alert-success" role="alert" *ngIf="success">
+  Cliente Salvo com sucesso!
+</div>
+
+
+<form (ngSubmit)="save()"action="">
+  <div class="form-group">
+    <label>nome</label>
+    <input type="text" id= nome class="form-control"
+    required [ngModel]="cliente.nome"
+    name="nome" #nome="ngModel">
+
+    <Label>Nº Funcionários</Label>
+    <input type="text" id= quantidadeFuncionarios class="form-control"
+    required [ngModel]="cliente.quantidadeFuncionarios"
+    name="quantidadeFuncionarios" #quantidadeFuncionarios="ngModel">
+
+    <button type="submit" [disabled]="nome.invalid"
+    class="btn btn-light">
+      <fa-icon [icon]="faSave"></fa-icon>
+    </button>
+
+  </div>
+</form>
