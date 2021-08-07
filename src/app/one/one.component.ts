@@ -11,7 +11,7 @@ import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 })
 export class OneComponent implements OnInit {
 
-  id: number;
+  id!: number;
   cliente: Clientes = new Clientes();
   faArrowCircleLeft=faArrowCircleLeft;
 

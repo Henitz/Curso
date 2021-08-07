@@ -22,6 +22,6 @@ export class ClientesService {
   }
 
   getOne(id: number) {
-    return this.http.get<Clientes>(this.baseClienteUrl +'/$(id)')
+    return this.http.get<Clientes>(this.baseClienteUrl + `/${id}`)
   }
 }

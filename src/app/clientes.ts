@@ -1,6 +1,6 @@
 export class Clientes {
-  id?: number;
-  nome?: string ;
-  quantidadeFuncionarios?: number;
+  id!: number;
+  nome!: string ;
+  quantidadeFuncionarios!: number;
 
 }
