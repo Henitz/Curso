@@ -32,7 +32,7 @@ export class ListComponent implements OnInit {
   }
 
   one(id: number) {
-    this.router.navigate(['/cliente/' + id])
+    this.router.navigate(['/clientes/' + id])
   }
 
 }
