@@ -18,6 +18,11 @@
     required [(ngModel)]="cliente.quantidadeFuncionarios"
     name="quantidadeFuncionarios" #quantidadeFuncionarios="ngModel">
 
+    <label>Cidade</label>
+    <input type="text" id="cidade" class="form-control"
+    required [(ngModel)]="cliente.cidade"
+    name="cidade" #cidade="ngModel">
+
     <button type="submit" [disabled]="nome.invalid"
     class="btn btn-light">
       <fa-icon [icon]="faSave"></fa-icon>
