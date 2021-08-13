@@ -29,6 +29,7 @@ export class FormComponent implements OnInit {
   save() {
    // this.service.save(this.cliente).subscribe(c=>{this.cliente=c; this.success = true})
    this.service.save(this.cliente).subscribe(c=>{this.router.navigate(['/clientes']); this.success = true})
+   //this.service.save(this.cliente).subscribe(c=>{this.router.navigate(['/clientes'])})
   }
 }
 
