@@ -1,6 +1,110 @@
 # Ui
 
+## Github Comandos
 
+# Situação
+
+## Estava com código feito na master e não havia adicionando e nem commitado
+
+```
+  git branch    
+ 
+ develop
+* master
+
+
+ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+
+Changes not staged for commit:
+        modified:   src/app/app-routing.module.ts
+					...
+```
+
+
+## Para desfazer tudo que foi alterado e começar de novo eu tive que dar o comando abaixo e deletar a pasta delete (component) que foi criado mas não será necessária
+
+```
+git checkout .
+
+```
+
+## Agora eu quis examinar se os commits estavam na mesma linha
+
+```
+git log --oneline
+
+b616819 (HEAD -> master) add 9:32
+d6faf72 (origin/master) correção menu
+0a94d09 list apos inserir
+```
+
+## Agora eu listei as branches minha vontade é ir pra develop para deletar a master e ter uma nova
+
+```
+git branch
+  develop
+* master
+
+git checkout develop
+Switched to branch 'develop'
+
+git branch -D master
+Deleted branch master (was b616819).
+
+```
+
+## Fui pra master pra deletar a develop
+
+```
+
+git checkout master
+Switched to a new branch 'master'
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+git branch -D develop
+Deleted branch develop (was 648bbf3).
+
+```
+
+
+
+## Agora estou baixando todas as atualizações da nuvem da remoto (origin) para o pc, por que? Por que rolou um merge request na nuvem e o pc local não sabe
+
+
+```
+git pull origin master
+
+git log --oneline
+d6faf72 (HEAD -> master, origin/master) correção menu
+
+
+```
+
+
+## Agora que a master está ok vou criar a develop a partir dela e confirmar que tudo esta na mesma linha com o git log
+
+```
+
+git checkout -b develop
+Switched to a new branch 'develop'
+
+ git log --oneline      
+d6faf72 (HEAD -> develop, origin/master, master) correção menu
+0a94d09 list apos inserir
+```
+
+
+
+## Situação ideal para começar a sprint
+
+```
+ git branch 
+* develop
+  master
+
+```
 
 ambiente java
 
