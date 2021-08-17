@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import { faEye } from '@fortawesome/free-solid-svg-icons'
-import {faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { Clientes } from '../clientes';
 import { ClientesService } from '../clientes.service';
 import { Router } from '@angular/router'
