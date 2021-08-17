@@ -31,6 +31,12 @@
                 </button>
               </td>
 
+              <td style="white-space: nowrap;">
+                <button class="btn btn-light" (click)="delete(cliente.id)">
+                    <fa-icon [icon]="faTrash"></fa-icon>
+                  </button>
+                </td>
+
             </tr>
           </tbody>
         </table>
