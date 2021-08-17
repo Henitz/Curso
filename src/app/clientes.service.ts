@@ -24,4 +24,8 @@ export class ClientesService {
   getOne(id: number) {
     return this.http.get<Clientes>(this.baseClienteUrl + `/${id}`)
   }
+
+  delete(id: number) : Observable<any> {
+    return this.http.delete<any>(this.baseClienteUrl + `/${id}`)
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import { faEye } from '@fortawesome/free-solid-svg-icons'
+import {faTrash } from '@fortawesome/free-solid-svg-icons'
 import { Clientes } from '../clientes';
 import { ClientesService } from '../clientes.service';
 import { Router } from '@angular/router'
@@ -14,6 +15,7 @@ export class ListComponent implements OnInit {
 
   faPlusSquare=faPlusSquare;
   faEye = faEye;
+  faTrash = faTrash;
 
   clientes: Clientes[] = [];
 
@@ -33,6 +35,10 @@ export class ListComponent implements OnInit {
 
   one(id: number) {
     this.router.navigate(['/clientes/' + id])
+  }
+
+  delete(id: number) {
+    this.service.delete(id).subscribe(data=>this.ngOnInit())
   }
 
 }
