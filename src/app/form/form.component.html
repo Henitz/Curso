@@ -18,6 +18,8 @@
     required [(ngModel)]="cliente.quantidadeFuncionarios"
     name="quantidadeFuncionarios" #quantidadeFuncionarios="ngModel">
 
+    <app-dropdown></app-dropdown>
+
     <label>Cidade</label>
     <input type="text" id="cidade" class="form-control"
     required [(ngModel)]="cliente.cidade"
