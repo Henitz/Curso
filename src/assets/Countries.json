@@ -1,8 +1,11 @@
-[
-  {
-    "CountryName": "United States"
-  },
-  {
-    "CountryName": "Brasil"
-  }
-]
+{
+  "Countries":
+  [
+    {
+      "CountryName": "United States"
+    },
+    {
+      "CountryName": "Brasil"
+    }
+  ]
+}
