@@ -1,4 +1,3 @@
-import { SelectService } from './select.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,8 +8,10 @@ import { OneComponent } from './one/one.component';
 import { FormComponent } from './form/form.component';
 import { DashComponent } from './dash/dash.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SelectService } from './select.service';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     ListComponent,
     OneComponent,
     FormComponent,
-    DashComponent
+    DashComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,

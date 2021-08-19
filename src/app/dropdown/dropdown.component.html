@@ -1,0 +1,11 @@
+<label>País</label>
+<select [(ngModel)]="selectedCountry.CountryName" #country (change)="onSelect(country.value)" name="country">
+  <option value="0"> Escolha </option>
+  <option *ngFor="let country of countries" value={{country.CountryName}}>{{country.CountryName}}</option>
+</select>
+
+<label>Estado</label>
+<select>
+  <option value="0"> Escolha </option>
+  <option *ngFor="let state of states" value={{state.StateName}}>{{state.StateName}}</option>
+</select>

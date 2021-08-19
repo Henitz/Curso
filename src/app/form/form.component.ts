@@ -3,18 +3,12 @@ import { Clientes } from '../clientes';
 import { ClientesService } from '../clientes.service';
 
 import { ActivatedRoute, Params, Router } from '@angular/router'
-import { Country } from '../country';
-import { State } from '../state';
-import { SelectService } from '../select.service';
-
 
 
 import { faSave, faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 
 //parte 2
-
-
 
 @Component({
   selector: 'app-form',
@@ -28,36 +22,21 @@ export class FormComponent implements OnInit {
   faSave=faSave;
   faArrowCircleLeft=faArrowCircleLeft;
 
-    //parte 2
-    id!: number;
+  //parte 2
+  id!: number;
 
-  selectedCountry: Country = new Country(2, 'Brasil');
-  countries!: Country[];
-  states!: State[];
+
 
   constructor(
     private service: ClientesService,
     private router: Router,
-    private selectService: SelectService,
-
     //parte 2
     private activatedRoute: ActivatedRoute
-
-
   ) {
     this.cliente = new Clientes();
   }
 
   ngOnInit(): void {
-
-    this.countries = this.selectService.getCountries();
-    this.onSelect(this.selectedCountry.id);
-  }
-
-  onSelect(countryId: any) {
-    this.states = this.selectService.getStates().filter((item) => item.countryId == countryId)
-
-
     let params : Observable<Params> = this.activatedRoute.params
     params.subscribe( urlParams => {
       this.id = urlParams['id']
@@ -70,8 +49,8 @@ export class FormComponent implements OnInit {
               )
       }
     })
-
-
+    
+    
   }
 
   save() {
