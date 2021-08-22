@@ -1,16 +1,20 @@
 {
-    "Cities": [{
-            "StateName": "São Paulo","CityName": "São Paulo"
+    "Cities": [
+        {
+            "StateName": "São Paulo",
+            "CityName": "São Paulo"
         },
-        {            "StateName": "São Paulo",
+        {
+            "StateName": "São Paulo",
             "CityName": "Santos"
         },
         {
             "StateName": "São Paulo",
-            "CityName": "Campinas"},
+            "CityName": "Campinas"
+        },
         {
             "StateName": "New York",
-  "CityName": "New Jersey"
+            "CityName": "New Jersey"
         }
     ]
 }

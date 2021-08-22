@@ -5,7 +5,13 @@
 </select>
 
 <label>Estado</label>
-<select>
+<select [(ngModel)]="selectedState.StateName" #state (change)="onSelectState(state.value)" name="state">
   <option value="0"> Escolha </option>
   <option *ngFor="let state of states" value={{state.StateName}}>{{state.StateName}}</option>
+</select>
+
+<label>Cidade</label>
+<select>
+  <option value="0"> Escolha </option>
+  <option *ngFor="let city of cities" value={{city.CityName}}>{{city.CityName}}</option>
 </select>

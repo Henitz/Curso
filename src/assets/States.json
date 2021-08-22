@@ -1,4 +1,4 @@
-{ "States": 
+{ "States":
 [
 {"CountryName": "Brasil","StateName": "Acre"},
 {"CountryName": "Brasil","StateName": "Alagoas"},
@@ -60,7 +60,7 @@
 {"CountryName": "United States","StateName": "Montana"},
 {"CountryName": "United States","StateName": "Nebraska"},
 {"CountryName": "United States","StateName": "Nevada"},
-{"CountryName": "United States","StateName": "New Hampshire"}
+{"CountryName": "United States","StateName": "New Hampshire"},
 {"CountryName": "United States","StateName": "New York"}
 ]
 }
