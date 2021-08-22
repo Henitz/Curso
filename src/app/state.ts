@@ -1,3 +1,6 @@
 export class State {
-  constructor(public CountryName: string, public StateName: string){}
+  constructor(
+    public CountryName: string,
+    public StateName: string,
+  ){}
 }

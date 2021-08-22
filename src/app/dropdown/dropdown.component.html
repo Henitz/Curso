@@ -1,11 +1,27 @@
-<label>País</label>
-<select [(ngModel)]="selectedCountry.CountryName" #country (change)="onSelect(country.value)" name="country">
-  <option value="0"> Escolha </option>
-  <option *ngFor="let country of countries" value={{country.CountryName}}>{{country.CountryName}}</option>
-</select>
+<div class="row">
+  <div class="col">
+    <label>País</label>
+    <select [(ngModel)]="selectedCountry.CountryName" #country (change)="onSelect(country.value)" name="country"
+      class="form-control">
+      <option value="0"></option>
+      <option *ngFor="let country of countries" value={{country.CountryName}}>{{country.CountryName}}</option>
+    </select>
+  </div>
 
-<label>Estado</label>
-<select>
-  <option value="0"> Escolha </option>
-  <option *ngFor="let state of states" value={{state.StateName}}>{{state.StateName}}</option>
-</select>
+  <div class="col">
+    <label>Estado</label>
+    <select [(ngModel)]="selectedState.StateName" #state (change)="onSelectState(state.value)" name="state"
+      class="form-control">
+      <option value="0"></option>
+      <option *ngFor="let state of states" value={{state.StateName}}>{{state.StateName}}</option>
+    </select>
+  </div>
+
+  <div class="col">
+    <label>Cidade</label>
+    <select class="form-control">
+      <option value="0"></option>
+      <option *ngFor="let city of cities" value={{city.StateName}}>{{city.StateName}}</option>
+    </select>
+  </div>
+</div>

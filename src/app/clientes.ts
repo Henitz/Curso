@@ -3,5 +3,4 @@ export class Clientes {
   nome!: string ;
   quantidadeFuncionarios!: number;
   cidade!: string
-
 }
