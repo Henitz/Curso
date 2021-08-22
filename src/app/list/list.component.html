@@ -16,6 +16,8 @@
             <th scope="col">Nome</th>
             <th scope="col">Nº de Funcionários</th>
             <th scope="col">Cidade</th>
+            <th scope="col">Estado</th>
+            <th scope="col">País</th>
 
             <th scope="col" colspane= "3"></th>
           </thead>
@@ -25,6 +27,8 @@
               <td>{{cliente.nome}}</td>
               <td>{{cliente.quantidadeFuncionarios}}</td>
               <td>{{cliente.cidade}}</td>
+              <td>{{cliente.estado}}</td>
+              <td>{{cliente.pais}}</td>
               <td style="white-space: nowrap;">
               <button class="btn btn-light" (click)="one(cliente.id)">
                   <fa-icon [icon]="faEye"></fa-icon>

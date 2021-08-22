@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col">
     <label>País</label>
-    <select [(ngModel)]="selectedCountry.CountryName" #country (change)="onSelect(country.value)" name="country"
+    <select [(ngModel)]="selectedCountry.CountryName"  [(ngModel)]="cliente.pais" #pais="ngModel" (change)="onSelect(pais.value)" name="pais"
       class="form-control">
       <option value="0"></option>
       <option *ngFor="let country of countries" value={{country.CountryName}}>{{country.CountryName}}</option>
@@ -10,17 +10,17 @@
 
   <div class="col">
     <label>Estado</label>
-    <select [(ngModel)]="selectedState.StateName" #state (change)="onSelectState(state.value)" name="state"
+    <select [(ngModel)]="selectedState.StateName"  [(ngModel)]="cliente.estado" #estado="ngModel" (change)="onSelectState(estado.value)" name="estado"
       class="form-control">
-      <option value="0"></option>
+      <option *ngIf="mostrar" value={{cliente.estado}}>{{cliente.estado}}</option>
       <option *ngFor="let state of states" value={{state.StateName}}>{{state.StateName}}</option>
     </select>
   </div>
 
   <div class="col">
-    <label>Cidade233333</label>
+    <label>Cidade</label>
     <select class="form-control" name="cidade" id="cidade" [(ngModel)]="cliente.cidade" #cidade="ngModel">
-      <option value="0"></option>
+      <option  *ngIf="mostrar" value={{cliente.cidade}}>{{cliente.cidade}}</option>
       <option *ngFor="let city of cities" value={{city.StateName}}>{{city.StateName}}</option>
     </select>
   </div>

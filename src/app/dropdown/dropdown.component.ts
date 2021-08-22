@@ -10,6 +10,8 @@ import { SelectService } from '../select.service';
   styleUrls: ['./dropdown.component.css']
 })
 export class DropdownComponent implements OnInit {
+  mostrar: boolean = true;
+
   @Input() cliente: any;
   selectedCountry: Country = new Country('');
   selectedState: State = new State('','');
@@ -25,6 +27,7 @@ export class DropdownComponent implements OnInit {
   }
 
   onSelect(countryName: string) {
+    this.mostrar = false;
     this.states = this.selectService.getStates().filter((s) => s.CountryName == countryName)
   }
 

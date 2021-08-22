@@ -1,9 +1,11 @@
 <!-- <p>one works!</p> -->
 <div>
-  <div>{{cliente.id}}</div>
-  <div>{{cliente.nome}}</div>
-  <div>{{cliente.quantidadeFuncionarios}}</div>
-  <div>{{cliente.cidade}}</div>
+  <h6>Id: <span class="badge badge-secondary">{{cliente.id}}</span></h6>
+  <h3>Nome: <span class="badge badge-secondary">{{cliente.nome}}</span></h3>
+  <h5>Nº Funcionários: <span class="badge badge-secondary">{{cliente.quantidadeFuncionarios}}</span></h5>
+  <h5>Cidade: <span class="badge badge-secondary">{{cliente.cidade}}</span></h5>
+  <h5>Estado: <span class="badge badge-secondary">{{cliente.estado}}</span></h5>
+  <h5>País: <span class="badge badge-secondary">{{cliente.pais}}</span></h5>
 </div>
 <button type="button" (click)="back()"class="btn btn-light">
   <fa-icon [icon]=faArrowCircleLeft></fa-icon>
