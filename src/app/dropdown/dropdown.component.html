@@ -21,7 +21,7 @@
     <label>Cidade</label>
     <select class="form-control" name="cidade" id="cidade" [(ngModel)]="cliente.cidade" #cidade="ngModel">
       <option  *ngIf="mostrar" value={{cliente.cidade}}>{{cliente.cidade}}</option>
-      <option *ngFor="let city of cities" value={{city.StateName}}>{{city.StateName}}</option>
+      <option *ngFor="let city of cities" value={{city.CityName}}>{{city.CityName}}</option>
     </select>
   </div>
 </div>
