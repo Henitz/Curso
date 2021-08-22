@@ -19,7 +19,7 @@
 
   <div class="col">
     <label>Cidade</label>
-    <select class="form-control">
+    <select class="form-control" name="cidade">
       <option value="0"></option>
       <option *ngFor="let city of cities" value={{city.StateName}}>{{city.StateName}}</option>
     </select>
