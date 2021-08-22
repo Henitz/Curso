@@ -31,18 +31,45 @@ export class SelectService {
     return this.http.get(this.urlCities);
   }
 
-  getCountries(){
+  _getCountries(){
     this.allCountries().subscribe(c => {this.countries=c.Countries;})
     return this.countries;
   }
 
-  getStates(){
+  getCountries() {
+    return [
+     new Country('United States'),
+     new Country('Brasil'),
+    ];
+  }
+  
+  getStates() {
+   return [
+     new State('United States', 'Arizona' ),
+     new State('United States', 'Alaska' ),
+     new State('United States', 'Florida'),
+     new State('United States', 'New York'),
+     new State('Brasil', 'São Paulo' ),
+     new State('Brasil', 'Rio de Janeiro'),
+     new State('Brasil', 'Minas Gerais' )
+    ];
+  }
+
+    
+  getCities() {
+    return [
+      new City('United States', 'New York', 'New York'),
+      new City('Brasil', 'São Paulo', 'São Paulo' ),
+     ];
+   }
+
+  _getStates(){
     this.allStates().subscribe(c => {this.states=c.States;})
     console.log("Tenho os estados? " + this.states)
     return this.states;
   }
 
-  getCities(){
+  _getCities(){
     this.allCities().subscribe(c => {this.cities=c.Cities;})
     console.log("Tenho as cidades? " + this.cities)
     return this.cities;

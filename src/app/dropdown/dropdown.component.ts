@@ -11,8 +11,9 @@ import { SelectService } from '../select.service';
 })
 export class DropdownComponent implements OnInit {
 
-  selectedCountry: Country = new Country('Brasil');
-  selectedState: State = new State('São Paulo', 'Brasil');
+  selectedCountry: Country = new Country('');
+  selectedState: State = new State('','');
+  selectedCity: City = new City('', '', '');
   countries!: Country[];
   states!: State[];
   cities!: City[];
@@ -28,11 +29,6 @@ export class DropdownComponent implements OnInit {
   }
 
   onSelectState(stateName: string) {
-    console.log("Estado selecionado: " + stateName);
-    this.cities = this.selectService.getCities().filter((c) => {
-      c.StateName == stateName;
-      console.log("Lista de estado na posição: " + c.StateName)
-    }
-    )
+    this.cities = this.selectService.getCities().filter((c) => c.StateName == stateName)
   }
 }
