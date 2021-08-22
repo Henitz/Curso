@@ -12,7 +12,8 @@
           [(ngModel)]="cliente.quantidadeFuncionarios" name="quantidadeFuncionarios" #quantidadeFuncionarios="ngModel">
       </div>
     </div>
-    <app-dropdown></app-dropdown>
+
+    <app-dropdown [cliente]="cliente"></app-dropdown>
 
     <button type="submit" [disabled]="nome.invalid" class="btn btn-light">
       <fa-icon [icon]="faSave"></fa-icon> Salvar Cliente

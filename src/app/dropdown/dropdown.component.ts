@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Country } from '../country';
 import { State } from '../state';
 import { City } from '../city';
@@ -10,7 +10,7 @@ import { SelectService } from '../select.service';
   styleUrls: ['./dropdown.component.css']
 })
 export class DropdownComponent implements OnInit {
-
+  @Input() cliente: any;
   selectedCountry: Country = new Country('');
   selectedState: State = new State('','');
   selectedCity: City = new City('', '', '');
