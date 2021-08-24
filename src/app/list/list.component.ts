@@ -21,6 +21,8 @@ export class ListComponent implements OnInit {
 
   clientes: Clientes[] = [];
 
+  clienteSelecionadoDelete = new Clientes();
+
   constructor(
   private service: ClientesService,
   private router: Router
@@ -39,8 +41,12 @@ export class ListComponent implements OnInit {
     this.router.navigate(['/clientes/' + id])
   }
 
-  delete(id: number) {
-    this.service.delete(id).subscribe(data=>this.ngOnInit())
+  preparaDelete(cliente: Clientes){
+    this.clienteSelecionadoDelete = cliente;
+  }
+
+  delete() {
+    this.service.delete(this.clienteSelecionadoDelete.id).subscribe(data=>this.ngOnInit())
   }
 
   alterar(id: number) {
