@@ -18,6 +18,7 @@ export class ListComponent implements OnInit {
   faEye = faEye;
   faTrash = faTrash;
   faPencilAlt = faPencilAlt;
+  clienteSelecionadoExibir = new Clientes();
 
   clientes: Clientes[] = [];
 
@@ -53,4 +54,15 @@ export class ListComponent implements OnInit {
     this.router.navigate(['/clientes/form/' + id])
   }
 
+
+  prepararExibir(cliente: Clientes){
+    this.clienteSelecionadoExibir = cliente
+  }
+
+  exibir(id: number) {
+    this.router.navigate(['/clientes/' + this.clienteSelecionadoExibir.id ])
+  }
+
+
 }
+

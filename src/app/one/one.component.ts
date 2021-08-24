@@ -15,6 +15,7 @@ export class OneComponent implements OnInit {
   cliente: Clientes = new Clientes();
   faArrowCircleLeft=faArrowCircleLeft;
 
+
   constructor(
     private service: ClientesService,
     private activadedRoute: ActivatedRoute,
@@ -33,4 +34,8 @@ export class OneComponent implements OnInit {
   back() {
     this.router.navigate(['/clientes'])
   }
+
+
+
+
 }
