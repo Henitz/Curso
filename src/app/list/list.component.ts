@@ -59,7 +59,7 @@ export class ListComponent implements OnInit {
     this.clienteSelecionadoExibir = cliente
   }
 
-  exibir(id: number) {
+  exibir() {
     this.router.navigate(['/clientes/' + this.clienteSelecionadoExibir.id ])
   }
 
