@@ -28,4 +28,8 @@ export class ClientesService {
   delete(id: number) : Observable<any> {
     return this.http.delete<any>(this.baseClienteUrl + `/${id}`)
   }
+
+  changeAtivo(id: number) : Observable<any> {
+    return this.http.patch<any>(this.baseClienteUrl + `/${id}` + "/ativo", null)
+  }
 }

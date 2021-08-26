@@ -1,64 +1,72 @@
 <!--<p>list works!</p> -->
- <!-- <div *ngFor ="let cliente of clientes" >
+<!-- <div *ngFor ="let cliente of clientes" >
   {{cliente.id}} - {{cliente.nome}} - {{cliente.quantidadeFuncionarios}}
 </div> -->
 <button (click)="form()" class="btn btn-light btn">
   <fa-icon [icon]=faPlusSquare></fa-icon>
-  Adicionar  Cliente
+  Adicionar Cliente
 </button>
 
 <div class="row">
   <div class="col-md-12">
-      <div class="table-responsive">
-        <table class="table table-hover">
-          <thead>
-            <th scope="col">Id</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Nº de Funcionários</th>
-            <th scope="col">Cidade</th>
-            <th scope="col">Estado</th>
-            <th scope="col">País</th>
-            <th scope="col" colspane= "3"></th>
-          </thead>
-          <tbody>
-            <tr *ngFor ="let cliente of clientes">
-              <th scope="row">{{cliente.id}}</th>
-              <td>{{cliente.nome}}</td>
-              <td>{{cliente.quantidadeFuncionarios}}</td>
-              <td>{{cliente.cidade}}</td>
-              <td>{{cliente.estado}}</td>
-              <td>{{cliente.pais}}</td>
-              <td style="white-space: nowrap;">
-              <button class="btn btn-light" (click)="prepararExibir(cliente)"
-              data-toggle="modal" data-target="#modalExibir"
-              >
-                  <fa-icon [icon]="faEye"></fa-icon>
-                </button>
-              </td>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <th scope="col">Id</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Nº de Funcionários</th>
+          <th scope="col">Cidade</th>
+          <th scope="col">Estado</th>
+          <th scope="col">País</th>
+          <th scope="col" colspane="4"></th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes">
+            <th scope="row">{{cliente.id}}</th>
+            <td>{{cliente.nome}}</td>
+            <td>{{cliente.quantidadeFuncionarios}}</td>
+            <td>{{cliente.cidade}}</td>
+            <td>{{cliente.estado}}</td>
+            <td>{{cliente.pais}}</td>
+            <td style="white-space: nowrap;">
+              <button class="btn btn-light" (click)="prepararExibir(cliente)" data-toggle="modal"
+                data-target="#modalExibir">
+                <fa-icon [icon]="faEye"></fa-icon>
+              </button>
+            </td>
 
-              <td style="white-space: nowrap;">
-                <button class="btn btn-light" (click)="preparaDelete(cliente)"
+            <td style="white-space: nowrap;">
+              <button class="btn btn-light" (click)="preparaDelete(cliente)" data-toggle="modal"
+                data-target="#modalDelecao">
+                <fa-icon [icon]="faTrash"></fa-icon>
+              </button>
+            </td>
 
-                data-toggle="modal" data-target="#modalDelecao"
+            <td style="white-space: nowrap;">
+              <button class="btn btn-light" (click)="alterar(cliente.id)">
+                <fa-icon [icon]="faPencilAlt"></fa-icon>
+              </button>
+            </td>
 
-                >
-                    <fa-icon [icon]="faTrash"></fa-icon>
-                  </button>
-                </td>
 
-                <td style="white-space: nowrap;">
-                  <button class="btn btn-light" (click)="alterar(cliente.id)">
-                      <fa-icon [icon]="faPencilAlt"></fa-icon>
-                    </button>
-                  </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+            <td>
+              <div class="button r center" id="button-1">
+                <input type="checkbox" class="checkbox" (click)="prepararMudarStatus(cliente)" [checked]="cliente.ativo"
+                  data-toggle="modal" data-target="#modalStatus">
+                <div class="knobs"></div>
+                <div class="layer"></div>
+              </div>
+            </td>
+
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
-<div id="modalDelecao" class ="modal fase" role="dialog">
+<div id="modalDelecao" class="modal fase" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -77,7 +85,7 @@
 </div>
 
 
-<div id="modalExibir" class ="modal fase" role="dialog">
+<div id="modalExibir" class="modal fase" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -89,6 +97,24 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-danger" (click)="exibir()" data-dismiss="modal">Confirmar</button>
+        <button class="btn btn-info" data-dismiss="modal">Cancela</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modalStatus" class="modal fase" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>Confirmação</h4>
+      </div>
+      <div class="modal-body">
+        <h5>Tem certeza que deseja mudar o status?</h5>
+        <h6>Cliente: <span class="badge badge-secondary">{{clienteSelecionadoAtivar.nome}}</span></h6>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" (click)="mudarStatus()" data-dismiss="modal">Confirmar</button>
         <button class="btn btn-info" data-dismiss="modal">Cancela</button>
       </div>
     </div>

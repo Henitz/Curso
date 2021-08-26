@@ -18,16 +18,15 @@ export class ListComponent implements OnInit {
   faEye = faEye;
   faTrash = faTrash;
   faPencilAlt = faPencilAlt;
-  clienteSelecionadoExibir = new Clientes();
 
+  clienteSelecionadoExibir = new Clientes();
+  clienteSelecionadoDelete = new Clientes();
+  clienteSelecionadoAtivar = new Clientes();
   clientes: Clientes[] = [];
 
-  clienteSelecionadoDelete = new Clientes();
-
   constructor(
-  private service: ClientesService,
-  private router: Router
-
+    private service: ClientesService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -63,6 +62,13 @@ export class ListComponent implements OnInit {
     this.router.navigate(['/clientes/' + this.clienteSelecionadoExibir.id ])
   }
 
+  prepararMudarStatus(cliente: Clientes) {
+    this.clienteSelecionadoAtivar = cliente
+  }
+
+  mudarStatus() {
+    this.service.changeAtivo(this.clienteSelecionadoAtivar.id).subscribe(data=>this.ngOnInit())
+  }
 
 }
 

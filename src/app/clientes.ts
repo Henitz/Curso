@@ -4,6 +4,6 @@ export class Clientes {
   quantidadeFuncionarios!: number;
   cidade!: string;
   estado!: string;
-  pais!: string
-
+  pais!: string;
+  ativo!: boolean;
 }
