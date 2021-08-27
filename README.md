@@ -1,10 +1,11 @@
 # Ui
 
-## Github Comandos
+## Gráfico
 
-# Situação
+```
+npm install ng2-charts chart.js --save
 
-## Estava com código feito na master e não havia adicionando e nem commitado
+```
 
 ```
   git branch    

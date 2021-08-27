@@ -12,7 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectService } from './select.service';
 import { DropdownComponent } from './dropdown/dropdown.component';
-
+import { ChartsModule } from 'ng2-charts';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { DropdownComponent } from './dropdown/dropdown.component';
     OneComponent,
     FormComponent,
     DashComponent,
-    DropdownComponent
+    DropdownComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { DropdownComponent } from './dropdown/dropdown.component';
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartsModule,
   ],
   providers: [SelectService],
   bootstrap: [AppComponent]
