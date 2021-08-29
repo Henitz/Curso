@@ -12,14 +12,14 @@ import { ClientesService } from '../clientes.service';
 export class BarChartComponent {
 
   clientes: Clientes[] = [];
- 
-  constructor(private service: ClientesService) { 
+
+  constructor(private service: ClientesService) {
   }
 
   ngOnInit(): void {
-      this.service.getAll().subscribe(   
+      this.service.getAll().subscribe(
       data =>{
-        this.barChartData[0].data = data.map(c=> parseInt((c.quantidadeFuncionarios).toString())) 
+        this.barChartData[0].data = data.map(c=> parseInt((c.quantidadeFuncionarios).toString()))
         this.barChartLabels = data.map(c => c.nome)
       })
   }
