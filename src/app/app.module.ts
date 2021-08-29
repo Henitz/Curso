@@ -14,6 +14,7 @@ import { SelectService } from './select.service';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { ChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { LineChartComponent } from './line-chart/line-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
     FormComponent,
     DashComponent,
     DropdownComponent,
-    BarChartComponent
+    BarChartComponent,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,
