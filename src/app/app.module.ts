@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { OneComponent } from './one/one.component';
+import { ProdutoFormComponent } from './produtos/produto-form/produto-form.component';
 import { FormComponent } from './form/form.component';
 import { DashComponent } from './dash/dash.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -18,6 +19,7 @@ import { LineChartComponent } from './line-chart/line-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
+    ProdutoFormComponent,
     ListComponent,
     OneComponent,
     FormComponent,
