@@ -1,1 +1,33 @@
-<p>produto-list works!</p>
+<!-- <div *ngFor="let produto of produtos">{{produto.descricao}}</div> -->
+<button (click)="form()" class="btn btn-light btn">
+  <fa-icon [icon]=faPlusSquare></fa-icon>
+  Adicionar Produto
+</button>
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <th>Código</th>
+          <th>Descricão</th>
+
+        </thead>
+        <tbody>
+            <tr  *ngFor="let produto of produtos">
+              <td>{{produto.codigo}}</td>
+              <td>{{produto.descricao}}</td>
+
+              <td style="white-space: nowrap;">
+                <button class="btn btn-light" (click)="prepararExibir(produto)" data-toggle="modal"
+                  data-target="#modalExibir">
+                  <fa-icon [icon]="faEye"></fa-icon>
+                </button>
+              </td>
+
+
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
