@@ -16,6 +16,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { ChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
+import { ProdutoListComponent } from './produtos/produto-list/produto-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { LineChartComponent } from './line-chart/line-chart.component';
     DashComponent,
     DropdownComponent,
     BarChartComponent,
-    LineChartComponent
+    LineChartComponent,
+    ProdutoListComponent
   ],
   imports: [
     BrowserModule,
