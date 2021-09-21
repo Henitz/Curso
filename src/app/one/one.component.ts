@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Clientes} from '../clientes'
+import { Clientes } from '../clientes';
 import { ClientesService } from '../clientes.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';

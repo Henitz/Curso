@@ -17,6 +17,7 @@ import { ChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { ProdutoListComponent } from './produtos/produto-list/produto-list.component';
+import { ProdutoOneComponent } from './produtos/produto-one/produto-one.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ProdutoListComponent } from './produtos/produto-list/produto-list.compo
     BarChartComponent,
     LineChartComponent,
     ProdutoListComponent,
+    ProdutoOneComponent,
   ],
   imports: [
     BrowserModule,

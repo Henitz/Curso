@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { faArrowCircleLeft, faSave } from '@fortawesome/free-solid-svg-icons';
+import { Observable } from 'rxjs';
+import { Clientes } from 'src/app/clientes';
 import { Produtos } from 'src/app/produtos';
 import { ProdutosService } from 'src/app/produtos.service';
 
@@ -16,15 +18,35 @@ export class ProdutoFormComponent implements OnInit {
   faSave=faSave;
   faArrowCircleLeft=faArrowCircleLeft;
 
+  codigo!: number;
+
 
   constructor(
     private service: ProdutosService,
     private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
     this.produtos = new Produtos();
    }
 
   ngOnInit(): void {
+    let params : Observable<Params> = this.activatedRoute.params
+    params.subscribe( urlParams => {
+      this.codigo = urlParams['codigo']
+      if(this.codigo){
+        this.service
+              .getOne(this.codigo)
+              .subscribe(
+                response => this.produtos = response ,
+                errorResponse => this.produtos = new Produtos()
+              )
+      }
+    })
+
+
+
+
+
   }
 
   save() {

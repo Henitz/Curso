@@ -15,12 +15,26 @@
         <tbody>
             <tr  *ngFor="let produto of produtos">
               <td>{{produto.codigo}}</td>
+              <td>{{produto.codigo}}</td>
               <td>{{produto.descricao}}</td>
 
               <td style="white-space: nowrap;">
                 <button class="btn btn-light" (click)="prepararExibir(produto)" data-toggle="modal"
                   data-target="#modalExibir">
                   <fa-icon [icon]="faEye"></fa-icon>
+                </button>
+              </td>
+
+              <td style="white-space: nowrap;">
+                <button class="btn btn-light" (click)="preparaDeleteProduto(produto)" data-toggle="modal"
+                  data-target="#modalDelecao">
+                  <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
+              </td>
+
+              <td style="white-space: nowrap;">
+                <button class="btn btn-light" (click)="alterarProduto(produto.codigo)">
+                  <fa-icon [icon]="faPencilAlt"></fa-icon>
                 </button>
               </td>
 
@@ -31,3 +45,42 @@
     </div>
   </div>
 </div>
+
+<div id="modalDelecao" class="modal fase" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>Confirmação</h4>
+      </div>
+      <div class="modal-body">
+        <h5>Tem certeza que deseja deletar?</h5>
+        <h6>Produtos: <span class="badge badge-secondary">{{produtoSelecionadoDelete.nome}}</span></h6>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" (click)="delete()" data-dismiss="modal">Confirmar</button>
+        <button class="btn btn-info" data-dismiss="modal">Cancela</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="modalExibir" class="modal fase" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>Confirmação</h4>
+      </div>
+      <div class="modal-body">
+        <h5>Tem certeza que deseja Exibir?</h5>
+        <h6>Produto: <span class="badge badge-secondary">{{produtoSelecionadoExibir.nome}}</span></h6>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" (click)="exibirProduto()" data-dismiss="modal">Confirmar</button>
+        <button class="btn btn-info" data-dismiss="modal">Cancela</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

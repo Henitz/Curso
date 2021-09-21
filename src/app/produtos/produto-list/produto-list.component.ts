@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Produtos } from 'src/app/produtos';
 import { ProdutosService } from 'src/app/produtos.service';
-import { faEye, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faPlusSquare, faTrash, faPencilAlt} from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router'
 
 @Component({
@@ -11,10 +11,15 @@ import { Router } from '@angular/router'
 })
 export class ProdutoListComponent implements OnInit {
   produtos: Produtos[] = [];
-  faEye = faEye;
+
   produto: Produtos[] = [];
   produtoSelecionadoExibir = new Produtos();
+  produtoSelecionadoDelete = new Produtos();
+
   faPlusSquare=faPlusSquare;
+  faEye = faEye;
+  faTrash = faTrash;
+  faPencilAlt = faPencilAlt;
 
 
   constructor(
@@ -29,7 +34,32 @@ export class ProdutoListComponent implements OnInit {
     this.produtoSelecionadoExibir = produto;
   }
 
+  exibirProduto() {
+    this.router.navigate(['/produtos/' + this.produtoSelecionadoExibir.codigo ])
+  }
+
+
   form() {
     this.router.navigate(['/produtos/produto-form'])
   }
+
+  one(codigo: number) {
+    this.router.navigate(['/produtos/' + codigo])
+  }
+
+  preparaDeleteProduto(produto: Produtos){
+    this.produtoSelecionadoDelete = produto;
+  }
+
+  delete() {
+    this.service.delete(this.produtoSelecionadoDelete.codigo).subscribe(data=>this.ngOnInit())
+  }
+
+  alterarProduto(codigo: number) {
+    console.log(codigo);
+    console.log("Teste editar")
+    this.router.navigate(['/produtos/produto-form/' + codigo])
+  }
+
+
 }
