@@ -1,0 +1,19 @@
+<!-- <p>pedido-form works!</p> -->
+<form (ngSubmit)="save()" action="">
+  <div class="form-group">
+    <div class="row">
+      <div class="col">
+        <label>Data</label>
+        <input type="text" id="data" class="form-control" required [(ngModel)]="pedidos.data" name="data"
+          #data="ngModel" placeholder="data">
+      </div>
+    </div>
+
+
+
+    <button type="submit" [disabled]="data.invalid" class="btn btn-light">
+      <fa-icon [icon]="faSave"></fa-icon> Salvar Produto
+    </button>
+
+  </div>
+</form>

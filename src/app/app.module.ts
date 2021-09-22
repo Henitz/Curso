@@ -18,6 +18,9 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { ProdutoListComponent } from './produtos/produto-list/produto-list.component';
 import { ProdutoOneComponent } from './produtos/produto-one/produto-one.component';
+import { PedidoFormComponent } from './pedidos/pedido-form/pedido-form.component';
+import { PedidoListComponent } from './pedidos/pedido-list/pedido-list.component';
+import { PedidoOneComponent } from './pedidos/pedido-one/pedido-one.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { ProdutoOneComponent } from './produtos/produto-one/produto-one.componen
     LineChartComponent,
     ProdutoListComponent,
     ProdutoOneComponent,
+    PedidoFormComponent,
+    PedidoListComponent,
+    PedidoOneComponent,
   ],
   imports: [
     BrowserModule,

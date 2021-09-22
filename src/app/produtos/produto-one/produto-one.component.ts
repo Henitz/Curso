@@ -26,7 +26,7 @@ export class ProdutoOneComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.getOne(this.codigo)
   }
 
   getOne(codigo: number){

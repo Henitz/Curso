@@ -2,18 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { faArrowCircleLeft, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
-import { Produtos } from 'src/app/produtos';
-import { ProdutosService } from 'src/app/produtos.service';
+import { Pedidos } from 'src/app/pedidos';
+import { PedidosService } from 'src/app/pedidos.service';
 
 @Component({
-  selector: 'app-produto-form',
-  templateUrl: './produto-form.component.html',
-  styleUrls: ['./produto-form.component.css']
+  selector: 'app-pedido-form',
+  templateUrl: './pedido-form.component.html',
+  styleUrls: ['./pedido-form.component.css']
 })
-export class ProdutoFormComponent implements OnInit {
+export class PedidoFormComponent implements OnInit {
 
   success: boolean = false;
-  produtos: Produtos;
+  pedidos: Pedidos;
   faSave=faSave;
   faArrowCircleLeft=faArrowCircleLeft;
 
@@ -21,12 +21,13 @@ export class ProdutoFormComponent implements OnInit {
 
 
   constructor(
-    private service: ProdutosService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
+  private service: PedidosService,
+  private router: Router,
+  private activatedRoute: ActivatedRoute
+
   ) {
-    this.produtos = new Produtos();
-   }
+    this.pedidos = new Pedidos();
+  }
 
   ngOnInit(): void {
     let params : Observable<Params> = this.activatedRoute.params
@@ -36,8 +37,8 @@ export class ProdutoFormComponent implements OnInit {
         this.service
               .getOne(this.codigo)
               .subscribe(
-                response => this.produtos = response ,
-                errorResponse => this.produtos = new Produtos()
+                response => this.pedidos = response ,
+                errorResponse => this.pedidos = new Pedidos()
               )
       }
     })
@@ -49,9 +50,9 @@ export class ProdutoFormComponent implements OnInit {
   }
 
   save() {
-
     // this.service.save(this.cliente).subscribe(c=>{this.cliente=c; this.success = true})
-    this.service.save(this.produtos).subscribe(c=>{this.router.navigate(['/produtos']); this.success = true})
+    console.log("Salvar");
+    this.service.save(this.pedidos).subscribe(c=>{this.router.navigate(['/pedidos']); this.success = true})
     //this.service.save(this.cliente).subscribe(c=>{this.router.navigate(['/clientes'])})
    }
 
