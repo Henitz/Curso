@@ -1,6 +1,7 @@
 <!-- <p>pedido-form works!</p> -->
 <form (ngSubmit)="save()" action="">
   <div class="form-group">
+
     <div class="row">
       <div class="col">
         <label>Data</label>
@@ -9,10 +10,32 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col">
+        <label>Cliente</label>
+        <select class="form-control" name="cliente" [ngModelOptions]="{standalone: true}"
+          [(ngModel)]="pedidos.cliente.id">
+        <option value="">Selecione ...</option>
+        <option *ngFor="let cliente of clientes"
+        [ngValue]="cliente.id"> {{ cliente.nome }} </option>
+        </select>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col">
+        <label>Produto</label>
+        <select class="form-control" name="produto" [ngModelOptions]="{standalone: true}"
+          [(ngModel)]="pedidos.produto.codigo">
+        <option value="">Selecione ...</option>
+        <option *ngFor="let produto of produtos"
+        [ngValue]="produto.codigo"> {{ produto.nome }} </option>
+        </select>
+      </div>
+    </div>
 
     <button type="submit" [disabled]="data.invalid" class="btn btn-light">
-      <fa-icon [icon]="faSave"></fa-icon> Salvar Produto
+      <fa-icon [icon]="faSave"></fa-icon> Salvar
     </button>
 
   </div>

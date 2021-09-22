@@ -39,6 +39,14 @@
                 </button>
               </td>
 
+              <td>
+                <div class="button r center" id="button-1">
+                  <input type="checkbox" class="checkbox" (click)="prepararMudarStatus(produto)" [checked]="produto.ativo"
+                    data-toggle="modal" data-target="#modalStatus">
+                  <div class="knobs"></div>
+                  <div class="layer"></div>
+                </div>
+              </td>
 
             </tr>
         </tbody>
@@ -84,4 +92,22 @@
   </div>
 </div>
 
+
+<div id="modalStatus" class="modal fase" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>Confirmação</h4>
+      </div>
+      <div class="modal-body">
+        <h5>Tem certeza que deseja mudar o status?</h5>
+        <h6>Produto: <span class="badge badge-secondary">{{produtoSelecionadoAtivar.nome}}</span></h6>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" (click)="mudarStatus()" data-dismiss="modal">Confirmar</button>
+        <button class="btn btn-info" data-dismiss="modal">Cancela</button>
+      </div>
+    </div>
+  </div>
+</div>
 

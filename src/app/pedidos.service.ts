@@ -30,7 +30,7 @@ delete(codigo: number) : Observable<any> {
   return this.http.delete<any>(this.basePedidoUrl + `/${codigo}`)
 }
 
-changeAtivo(codigo: number) : Observable<any> {
+changeAtivoPedidos(codigo: number) : Observable<any> {
   return this.http.patch<any>(this.basePedidoUrl + `/${codigo}` + "/ativo", null)
 }
 }

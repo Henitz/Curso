@@ -15,6 +15,7 @@ export class PedidoListComponent implements OnInit {
   pedidos: Pedidos[] = [];
   pedidoSelecionadoExibir = new Pedidos();
   pedidoSelecionadoDelete = new Pedidos();
+  pedidoSelecionadoAtivar = new Pedidos();
 
   faPlusSquare=faPlusSquare;
   faEye = faEye;
@@ -62,6 +63,15 @@ export class PedidoListComponent implements OnInit {
     console.log(codigo);
     console.log("Teste editar")
     this.router.navigate(['/pedidos/pedido-form/' + codigo])
+  }
+
+  prepararMudarStatus(pedido: Pedidos) {
+    this.pedidoSelecionadoAtivar = pedido
+  }
+
+  mudarStatus() {
+    this.service.changeAtivoPedidos(this.pedidoSelecionadoAtivar.codigo).subscribe(data=>this.ngOnInit())
+
   }
 
 }

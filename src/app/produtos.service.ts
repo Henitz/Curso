@@ -31,7 +31,8 @@ export class ProdutosService {
     return this.http.delete<any>(this.baseProdutoUrl + `/${codigo}`)
   }
 
-  changeAtivo(codigo: number) : Observable<any> {
+
+  changeAtivoProduto(codigo: number) : Observable<any> {
     return this.http.patch<any>(this.baseProdutoUrl + `/${codigo}` + "/ativo", null)
   }
 }

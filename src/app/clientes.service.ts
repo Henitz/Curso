@@ -32,4 +32,6 @@ export class ClientesService {
   changeAtivo(id: number) : Observable<any> {
     return this.http.patch<any>(this.baseClienteUrl + `/${id}` + "/ativo", null)
   }
+
+
 }
