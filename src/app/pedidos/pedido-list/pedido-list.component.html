@@ -39,8 +39,15 @@
                 </button>
               </td>
 
-              <td style="white-space: nowrap;">
+
+              <td style="white-space: nowrap;"*ngIf="pedido.ativo" >
                 <button class="btn btn-light" (click)="alterarPedido(pedido.codigo)">
+                  <fa-icon [icon]="faPencilAlt"></fa-icon>
+                </button>
+              </td>
+
+              <td style="white-space: nowrap;"*ngIf="!pedido.ativo" >
+                <button class="btn btn-light" data-toggle="modal" data-target="#modalMensagem">
                   <fa-icon [icon]="faPencilAlt"></fa-icon>
                 </button>
               </td>
@@ -116,3 +123,19 @@
   </div>
 </div>
 
+<div id="modalMensagem" class="modal fase" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>Confirmação</h4>
+      </div>
+      <div class="modal-body">
+        <h5>Pedido inativo, não é possível Alterar</h5>
+        <h6>Cliente: <span class="badge badge-secondary">{{pedidoSelecionadoAtivar.codigo}}</span></h6>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-info" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
