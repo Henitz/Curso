@@ -1,8 +1,8 @@
-import { GraficosService } from './../graficos.service';
 import { Component } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
-import { Graficos } from '../graficos';
+import { Clientes } from '../clientes';
+import { ClientesService } from '../clientes.service';
 
 @Component({
   selector: 'app-line-chart',
@@ -11,23 +11,22 @@ import { Graficos } from '../graficos';
 })
 export class LineChartComponent {
 
-  graficos: Graficos[] = [];
+  clientes: Clientes[] = [];
 
-  constructor(private service: GraficosService) {
+  constructor(private service: ClientesService) {
   }
 
   ngOnInit(): void {
-      this.service.getTotais().subscribe(
+      this.service.getAll().subscribe(
       data =>{
-        this.lineChartData[0].data = data.map(g=> parseInt((g.total).toString()))
-        this.lineChartLabels = data.map(g=> g.categoria)
+        this.lineChartData[0].data = data.map(c=> parseInt((c.quantidadeFuncionarios).toString()))
+        this.lineChartLabels = data.map(c => c.nome)
       })
   }
 
   lineChartOptions: ChartOptions = {
     responsive: true,
-    scales: { yAxes: [{ ticks: { beginAtZero: true } }]
-   }
+    scales: { yAxes: [{ ticks: { beginAtZero: true } }] }
   };
   lineChartColors: Color[] = [
   {
@@ -51,6 +50,6 @@ export class LineChartComponent {
   lineChartPlugins = [];
 
   lineChartData: ChartDataSets[] = [
-    { data: [], label: 'Quantidade de registros por categoria' }
+    { data: [], label: 'Quantidade de clientes' }
   ];
 }
