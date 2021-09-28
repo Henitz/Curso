@@ -23,6 +23,7 @@ export class ListComponent implements OnInit {
   clienteSelecionadoDelete = new Clientes();
   clienteSelecionadoAtivar = new Clientes();
   clientes: Clientes[] = [];
+  blockDeletion: Boolean = false;
 
   constructor(
     private service: ClientesService,
@@ -46,7 +47,11 @@ export class ListComponent implements OnInit {
   }
 
   delete() {
-    this.service.delete(this.clienteSelecionadoDelete.id).subscribe(data=>this.ngOnInit())
+    this.service.delete(this.clienteSelecionadoDelete.id).subscribe(
+          m=> { this.blockDeletion = m.block_delecao;
+          this.ngOnInit()
+        }
+      )
   }
 
   alterar(id: number) {

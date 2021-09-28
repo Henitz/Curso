@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Clientes } from './clientes';
+import { Mensagem } from './mensagem';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,7 @@ export class ClientesService {
     return this.http.get<Clientes>(this.baseClienteUrl + `/${id}`)
   }
 
-  delete(id: number) : Observable<any> {
+  delete(id: number) : Observable<Mensagem> {
     return this.http.delete<any>(this.baseClienteUrl + `/${id}`)
   }
 
