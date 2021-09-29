@@ -7,12 +7,11 @@
   Adicionar Cliente
 </button>
 
-<!--https://stackoverflow.com/questions/23101966/bootstrap-alert-auto-close-->
 <div class="alert alert-primary" role="alert" *ngIf="blockDeletion" id="deletion-alert">
-  N E G A D O, clique aqui e saiba mais:
+  Cliente não pode ser deletado: 
   <button class="btn btn-light" data-toggle="modal"
   data-target="#modalMensagem">
-  <fa-icon [icon]="faEye"></fa-icon>
+  Saiba mais
 </button>
 </div>
 <div class="row">
@@ -140,7 +139,7 @@
         <h6>Use a função de desativar, ou delete os pedidos vinculados</h6>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-info" data-dismiss="modal">Fechar</button>
+        <button class="btn btn-info" data-dismiss="modal" (click)="close()">Fechar</button>
       </div>
     </div>
   </div>

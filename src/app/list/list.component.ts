@@ -34,6 +34,10 @@ export class ListComponent implements OnInit {
     this.service.getAll().subscribe(c=>this.clientes=c)
   }
 
+  close(){
+    this.blockDeletion = false;
+  }
+
   form() {
     this.router.navigate(['/clientes/form'])
   }
