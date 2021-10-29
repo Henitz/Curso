@@ -34,11 +34,17 @@ export class SelectService {
   getCities() {
     return [
       new City('United States', 'New York', 'New York'),
+      new City('United States', 'Florida', 'Miami'),
+      new City ('United States', 'Alaska', 'Juneau'),
+      new City ('United States', 'Arizona', 'Phoenix'),
       new City('Brasil', 'São Paulo', 'São Paulo' ),
+      new City('Brasil', 'São Paulo', 'São Bernardo do Campo'),
       new City('Brasil', 'Paraná', 'Curitiba'),
       new City('Brasil', 'Paraná', 'Cascavel'),
-      new City('Brasil', 'São Paulo', 'São Bernardo do Campo'),
-      new City('United States', 'Florida', 'Miami')
+      new City('Brasil', 'Rio de Janeiro', 'Rio de Janeiro'),
+      new City('Brasil', 'Minas Gerais', 'Belo Horizonte')
+
+
      ];
    }
 }
