@@ -26,7 +26,8 @@ export class SelectService {
      new State('United States', 'New York'),
      new State('Brasil', 'São Paulo' ),
      new State('Brasil', 'Rio de Janeiro'),
-     new State('Brasil', 'Minas Gerais' )
+     new State('Brasil', 'Minas Gerais' ),
+     new State('Brasil', 'Paraná'),
     ];
   }
 
@@ -34,6 +35,10 @@ export class SelectService {
     return [
       new City('United States', 'New York', 'New York'),
       new City('Brasil', 'São Paulo', 'São Paulo' ),
+      new City('Brasil', 'Paraná', 'Curitiba'),
+      new City('Brasil', 'Paraná', 'Cascavel'),
+      new City('Brasil', 'São Paulo', 'São Bernardo do Campo'),
+      new City('United States', 'Florida', 'Miami')
      ];
    }
 }
