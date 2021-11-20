@@ -1,5 +1,33 @@
 <!-- <router-outlet></router-outlet> -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div id="app" class="container">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a href="/login" class="nav-link" routerLink="login">Login</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a href="/register" class="nav-link" routerLink="register">Register</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light"  *ngIf="isLoggedIn">
   <a class="navbar-brand" href="#">
     <fa-icon [icon]="faUsers"></fa-icon>
   </a>
@@ -63,7 +91,7 @@
 </div>
 
 
-<footer class="py-4 bg-light mt-auto">
+<footer class="py-4 bg-light mt-auto"  *ngIf="isLoggedIn">
   <div class="container-fluid">
     <div class="d-flex align-items-center justify-content-between small">
       <a class="link-dark" href="https://github.com/henitz/curso" target="_blank">

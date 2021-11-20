@@ -21,6 +21,8 @@ import { ProdutoOneComponent } from './produtos/produto-one/produto-one.componen
 import { PedidoFormComponent } from './pedidos/pedido-form/pedido-form.component';
 import { PedidoListComponent } from './pedidos/pedido-list/pedido-list.component';
 import { PedidoOneComponent } from './pedidos/pedido-one/pedido-one.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { PedidoOneComponent } from './pedidos/pedido-one/pedido-one.component';
     PedidoFormComponent,
     PedidoListComponent,
     PedidoOneComponent,
+    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

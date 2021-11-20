@@ -11,6 +11,10 @@ import { ProdutoFormComponent } from './produtos/produto-form/produto-form.compo
 import { ProdutoListComponent } from './produtos/produto-list/produto-list.component';
 import { PedidoListComponent } from './pedidos/pedido-list/pedido-list.component';
 
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './_services/auth-guard.service';
+import { RegisterComponent } from './register/register.component';
+
 
 const routes: Routes = [
   {path: '', redirectTo: 'dash', pathMatch: 'full'},
@@ -28,7 +32,12 @@ const routes: Routes = [
   {path: 'pedidos/pedido-list', component: PedidoListComponent},
   {path: 'pedidos', component: PedidoListComponent},
   {path: 'pedidos/:codigo', component: PedidoOneComponent},
-  {path: 'pedidos/pedido-form/:codigo' ,component: PedidoFormComponent}
+  {path: 'pedidos/pedido-form/:codigo' ,component: PedidoFormComponent},
+
+
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+
 
 
 ];
