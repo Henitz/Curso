@@ -10,29 +10,32 @@ import { Mensagem } from './mensagem';
 })
 export class ClientesService {
 
-  private baseClienteUrl = environment.baseUrl + "/clientes";
+  private baseClienteUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Clientes[]> {
-    return this.http.get<Clientes[]>(this.baseClienteUrl)
+  getAll(accountId: any): Observable<Clientes[]> {
+    return this.http.get<Clientes[]>(this.baseClienteUrl + `/clientes/${accountId}`)
   }
 
-  save(Clientes: Clientes) {
-    return this.http.post<Clientes>(this.baseClienteUrl, Clientes)
+  save(Clientes: Clientes, accountId: any) {
+    return this.http.post<Clientes>(this.baseClienteUrl + `/clientes` +  `/${accountId}`, Clientes)
   }
 
-  getOne(id: number) {
-    return this.http.get<Clientes>(this.baseClienteUrl + `/${id}`)
+  getOne(id: number, accountId: any) {
+    return this.http.get<Clientes>(this.baseClienteUrl +  + `/clientes/${id}` + `/${accountId}`)
   }
 
-  delete(id: number) : Observable<Mensagem> {
-    return this.http.delete<any>(this.baseClienteUrl + `/${id}`)
+  delete(id: number, accountId: any) : Observable<Mensagem> {
+    return this.http.delete<any>(this.baseClienteUrl + `/clientes/${id}` + `/${accountId}`)
   }
 
-  changeAtivo(id: number) : Observable<any> {
-    return this.http.patch<any>(this.baseClienteUrl + `/${id}` + "/ativo", null)
+  changeAtivo(id: number, accountId: any) : Observable<any> {
+    return this.http.patch<any>(this.baseClienteUrl + `/clientes/${id}` + "/ativo" +  `/${accountId}`, null)
   }
 
+  /* update(id: (id: number, accountId: any ) {
+    return this.http.put(this.baseClienteUrl + `/clientes/${id}` + `/${accountId}`, Clientes)
+  } */
 
 }

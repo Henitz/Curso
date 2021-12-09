@@ -6,6 +6,7 @@ import { faPencilAlt} from '@fortawesome/free-solid-svg-icons'
 import { Clientes } from '../clientes';
 import { ClientesService } from '../clientes.service';
 import { Router } from '@angular/router'
+import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
   selector: 'app-list',
@@ -25,13 +26,16 @@ export class ListComponent implements OnInit {
   clientes: Clientes[] = [];
   blockDeletion: Boolean = false;
 
+  accountId = this.tokenStorage.getAccountID();
+
   constructor(
     private service: ClientesService,
-    private router: Router
+    private router: Router,
+    private tokenStorage: TokenStorageService,
   ) { }
 
   ngOnInit(): void {
-    this.service.getAll().subscribe(c=>this.clientes=c)
+    this.service.getAll(this.accountId).subscribe(c=>this.clientes=c)
   }
 
   close(){
@@ -42,7 +46,7 @@ export class ListComponent implements OnInit {
     this.router.navigate(['/clientes/form'])
   }
 
-  one(id: number) {
+  one(id: number, accountId: any) {
     this.router.navigate(['/clientes/' + id])
   }
 
@@ -51,14 +55,14 @@ export class ListComponent implements OnInit {
   }
 
   delete() {
-    this.service.delete(this.clienteSelecionadoDelete.id).subscribe(
+    this.service.delete(this.clienteSelecionadoDelete.id, this.accountId).subscribe(
           m=> { this.blockDeletion = m.block_delecao;
           this.ngOnInit()
         }
       )
   }
 
-  alterar(id: number) {
+  alterar(id: number, accountId: any) {
     this.router.navigate(['/clientes/form/' + id])
   }
 
@@ -76,7 +80,7 @@ export class ListComponent implements OnInit {
   }
 
   mudarStatus() {
-    this.service.changeAtivo(this.clienteSelecionadoAtivar.id).subscribe(data=>this.ngOnInit())
+    this.service.changeAtivo(this.clienteSelecionadoAtivar.id, this.accountId).subscribe(data=>this.ngOnInit())
   }
 
 }

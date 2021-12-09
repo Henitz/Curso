@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faEye, faPencilAlt, faPlusSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Pedidos } from 'src/app/pedidos';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-pedido-list',
@@ -22,16 +23,19 @@ export class PedidoListComponent implements OnInit {
   faTrash = faTrash;
   faPencilAlt = faPencilAlt;
 
+  accountId = this.tokenStorage.getAccountID();
+
   constructor(
 
     private service: PedidosService,
-    private router: Router
+    private router: Router,
+    private tokenStorage: TokenStorageService,
 
 
   ) { }
 
   ngOnInit(): void {
-    this.service.getAll().subscribe(p=>this.pedidos=p)
+    this.service.getAll(this.accountId).subscribe(p=>this.pedidos=p)
   }
 
   prepararExibir(pedidos: Pedidos){
@@ -56,7 +60,7 @@ export class PedidoListComponent implements OnInit {
   }
 
   delete() {
-    this.service.delete(this.pedidoSelecionadoDelete.codigo).subscribe(data=>this.ngOnInit())
+    this.service.delete(this.pedidoSelecionadoDelete.codigo, this.accountId).subscribe(data=>this.ngOnInit())
   }
 
   alterarPedido(codigo: number) {
@@ -70,7 +74,7 @@ export class PedidoListComponent implements OnInit {
   }
 
   mudarStatus() {
-    this.service.changeAtivoPedidos(this.pedidoSelecionadoAtivar.codigo).subscribe(data=>this.ngOnInit())
+    this.service.changeAtivoPedidos(this.pedidoSelecionadoAtivar.codigo, this.accountId).subscribe(data=>this.ngOnInit())
 
   }
 

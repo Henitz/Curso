@@ -9,31 +9,31 @@ import { environment } from 'src/environments/environment';
 })
 export class ProdutosService {
 
-  private baseProdutoUrl = environment.baseUrl + "/produtos";
+  private baseProdutoUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
 
 
-  getAll(): Observable<Produtos[]> {
-    return this.http.get<Produtos[]>(this.baseProdutoUrl)
+  getAll(accountId: any): Observable<Produtos[]> {
+    return this.http.get<Produtos[]>(this.baseProdutoUrl +  `/produtos/${accountId}`)
   }
 
-  save(Produtos: Produtos) {
-    return this.http.post<Produtos>(this.baseProdutoUrl, Produtos)
+  save(Produtos: Produtos, accountId: any) {
+    return this.http.post<Produtos>(this.baseProdutoUrl + `/produtos` +  `/${accountId}`, Produtos)
   }
 
-  getOne(codigo: number) {
-    return this.http.get<Produtos>(this.baseProdutoUrl + `/${codigo}`)
+  getOne(codigo: number, accountId: any) {
+    return this.http.get<Produtos>(this.baseProdutoUrl + `/produtos/${codigo}` + `/${accountId}`)
   }
 
-  delete(codigo: number) : Observable<any> {
-    return this.http.delete<any>(this.baseProdutoUrl + `/${codigo}`)
+  delete(codigo: number, accountId: any) : Observable<any> {
+    return this.http.delete<any>(this.baseProdutoUrl + `/produtos/${codigo}` + `/${accountId}`)
   }
 
 
-  changeAtivoProduto(codigo: number) : Observable<any> {
-    return this.http.patch<any>(this.baseProdutoUrl + `/${codigo}` + "/ativo", null)
+  changeAtivoProduto(codigo: number, accountId: any) : Observable<any> {
+    return this.http.patch<any>(this.baseProdutoUrl + `/produtos/${codigo}` + "/ativo" + `/${accountId}`, null)
   }
 }
 

@@ -3,6 +3,7 @@ import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { Clientes } from '../clientes';
 import { ClientesService } from '../clientes.service';
+import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
   selector: 'app-bar-chart',
@@ -13,11 +14,15 @@ export class BarChartComponent {
 
   clientes: Clientes[] = [];
 
-  constructor(private service: ClientesService) {
+  accountId = this.tokenStorage.getAccountID();
+
+  constructor(private service: ClientesService,
+    private tokenStorage: TokenStorageService,
+    ) {
   }
 
   ngOnInit(): void {
-      this.service.getAll().subscribe(
+      this.service.getAll(this.accountId).subscribe(
       data =>{
         this.barChartData[0].data = data.map(c=> parseInt((c.quantidadeFuncionarios).toString()))
         this.barChartLabels = data.map(c => c.nome)

@@ -9,6 +9,7 @@ import {
   faPencilAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-produto-list',
@@ -27,10 +28,15 @@ export class ProdutoListComponent implements OnInit {
   faTrash = faTrash;
   faPencilAlt = faPencilAlt;
 
-  constructor(private service: ProdutosService, private router: Router) {}
+  accountId = this.tokenStorage.getAccountID();
+
+  constructor(private service: ProdutosService,
+    private router: Router,
+    private tokenStorage: TokenStorageService,
+    ) {}
 
   ngOnInit(): void {
-    this.service.getAll().subscribe((p) => (this.produtos = p));
+    this.service.getAll(this.accountId).subscribe((p) => (this.produtos = p));
   }
   prepararExibir(produto: Produtos) {
     this.produtoSelecionadoExibir = produto;
@@ -54,7 +60,7 @@ export class ProdutoListComponent implements OnInit {
 
   delete() {
     this.service
-      .delete(this.produtoSelecionadoDelete.codigo)
+      .delete(this.produtoSelecionadoDelete.codigo, this.accountId)
       .subscribe((data) => this.ngOnInit());
   }
 
@@ -70,7 +76,7 @@ export class ProdutoListComponent implements OnInit {
 
   mudarStatus() {
     this.service
-      .changeAtivoProduto(this.produtoSelecionadoAtivar.codigo)
+      .changeAtivoProduto(this.produtoSelecionadoAtivar.codigo, this.accountId)
       .subscribe((data) => this.ngOnInit());
   }
 }

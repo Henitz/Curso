@@ -3,6 +3,7 @@ import { Clientes } from '../clientes';
 import { ClientesService } from '../clientes.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
   selector: 'app-one',
@@ -15,11 +16,14 @@ export class OneComponent implements OnInit {
   cliente: Clientes = new Clientes();
   faArrowCircleLeft=faArrowCircleLeft;
 
+  accountId = this.tokenStorage.getAccountID();
+
 
   constructor(
     private service: ClientesService,
     private activadedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private tokenStorage: TokenStorageService,
   ) {
     this.id = this.activadedRoute.snapshot.params['id'];
    }
@@ -28,7 +32,7 @@ export class OneComponent implements OnInit {
     this.getOne(this.id)
   }
   getOne(id: number){
-    this.service.getOne(id).subscribe(c=>this.cliente=c)
+    this.service.getOne(id, this.accountId).subscribe(c=>this.cliente=c)
   }
 
   back() {

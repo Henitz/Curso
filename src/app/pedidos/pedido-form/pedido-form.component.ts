@@ -8,6 +8,7 @@ import { Clientes } from 'src/app/clientes';
 import { Pedidos } from 'src/app/pedidos';
 import { PedidosService } from 'src/app/pedidos.service';
 import { Produtos } from 'src/app/produtos';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-pedido-form',
@@ -25,25 +26,28 @@ export class PedidoFormComponent implements OnInit {
 
   codigo!: number;
 
+  accountId = this.tokenStorage.getAccountID();
+
   constructor(
     private service: PedidosService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private clientesService: ClientesService,
     private produtoService: ProdutosService,
+    private tokenStorage: TokenStorageService,
   ) {
     this.pedidos = new Pedidos();
   }
 
   ngOnInit(): void {
-    this.clientesService.getAll().subscribe(c=>this.clientes=c);
-    this.produtoService.getAll().subscribe(c=>this.produtos=c);
+    this.clientesService.getAll(this.accountId).subscribe(c=>this.clientes=c);
+    this.produtoService.getAll(this.accountId).subscribe(c=>this.produtos=c);
 
     let params: Observable<Params> = this.activatedRoute.params;
     params.subscribe((urlParams) => {
       this.codigo = urlParams['codigo'];
       if (this.codigo) {
-        this.service.getOne(this.codigo).subscribe(
+        this.service.getOne(this.codigo, this.accountId).subscribe(
           (response) => (this.pedidos = response),
           (errorResponse) => (this.pedidos = new Pedidos())
         );
@@ -54,7 +58,7 @@ export class PedidoFormComponent implements OnInit {
   save() {
     // this.service.save(this.cliente).subscribe(c=>{this.cliente=c; this.success = true})
     console.log('Salvar');
-    this.service.save(this.pedidos).subscribe((c) => {
+    this.service.save(this.pedidos, this.accountId).subscribe((c) => {
       this.router.navigate(['/pedidos']);
       this.success = true;
     });

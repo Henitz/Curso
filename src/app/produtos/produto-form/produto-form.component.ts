@@ -4,6 +4,7 @@ import { faArrowCircleLeft, faSave } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { Produtos } from 'src/app/produtos';
 import { ProdutosService } from 'src/app/produtos.service';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-produto-form',
@@ -19,11 +20,14 @@ export class ProdutoFormComponent implements OnInit {
 
   codigo!: number;
 
+  accountId = this.tokenStorage.getAccountID();
+
 
   constructor(
     private service: ProdutosService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private tokenStorage: TokenStorageService,
   ) {
     this.produtos = new Produtos();
    }
@@ -34,7 +38,7 @@ export class ProdutoFormComponent implements OnInit {
       this.codigo = urlParams['codigo']
       if(this.codigo){
         this.service
-              .getOne(this.codigo)
+              .getOne(this.codigo, this.accountId)
               .subscribe(
                 response => this.produtos = response ,
                 errorResponse => this.produtos = new Produtos()
@@ -51,7 +55,7 @@ export class ProdutoFormComponent implements OnInit {
   save() {
 
     // this.service.save(this.cliente).subscribe(c=>{this.cliente=c; this.success = true})
-    this.service.save(this.produtos).subscribe(c=>{this.router.navigate(['/produtos']); this.success = true})
+    this.service.save(this.produtos, this.accountId).subscribe(c=>{this.router.navigate(['/produtos']); this.success = true})
     //this.service.save(this.cliente).subscribe(c=>{this.router.navigate(['/clientes'])})
    }
 

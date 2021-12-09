@@ -8,6 +8,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router'
 import { faSave, faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 
+import { TokenStorageService } from '../_services/token-storage.service';
 //parte 2
 
 @Component({
@@ -24,14 +25,15 @@ export class FormComponent implements OnInit {
 
   //parte 2
   id!: number;
-
+  accountId = this.tokenStorage.getAccountID();
 
 
   constructor(
     private service: ClientesService,
     private router: Router,
     //parte 2
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private tokenStorage: TokenStorageService
   ) {
     this.cliente = new Clientes();
   }
@@ -42,7 +44,7 @@ export class FormComponent implements OnInit {
       this.id = urlParams['id']
       if(this.id){
         this.service
-              .getOne(this.id)
+              .getOne(this.id, this.accountId)
               .subscribe(
                 response => this.cliente = response ,
                 errorResponse => this.cliente = new Clientes()
@@ -56,7 +58,20 @@ export class FormComponent implements OnInit {
   save() {
     console.log("Salvar Aqui")
    // this.service.save(this.cliente).subscribe(c=>{this.cliente=c; this.success = true})
-   this.service.save(this.cliente).subscribe(c=>{this.router.navigate(['/clientes']); this.success = true})
+  // this.service.save(this.cliente, this.accountId).subscribe(c=>{this.router.navigate(['/clientes']); this.success = true})
+   if(!this.id){
+    console.log(" NAO TEM ID PORTANTO EH NOVO POSTMAPPING")
+    this.service.save(this.cliente, this.accountId).subscribe(c=>{this.router.navigate(['/clientes']); this.success = true})
+  }
+  if(this.id){
+    console.log("  TEM ID PORTANTO EH ALTERACAO PUTMAPPING")
+    /* this.service.update(this.id, this.cliente,this.accountId).subscribe(c=>{this.router.navigate(['/clientes']); this.success = true}) */
+  }
+
+
+
+
+
    //this.service.save(this.cliente).subscribe(c=>{this.router.navigate(['/clientes'])})
   }
 }

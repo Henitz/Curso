@@ -8,30 +8,30 @@ import { Pedidos } from './pedidos';
   providedIn: 'root'
 })
 export class PedidosService {
-  private basePedidoUrl = environment.baseUrl + "/pedidos";
+  private basePedidoUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
 
-getAll(): Observable<Pedidos[]> {
-  return this.http.get<Pedidos[]>(this.basePedidoUrl)
+getAll(accountId: any): Observable<Pedidos[]> {
+  return this.http.get<Pedidos[]>(this.basePedidoUrl + `/pedidos/${accountId}`)
 }
 
-save(Pedidos: Pedidos) {
+save(Pedidos: Pedidos, accountId: any) {
 console.log(" printer 1")
-  return this.http.post<Pedidos>(this.basePedidoUrl, Pedidos)
+  return this.http.post<Pedidos>(this.basePedidoUrl + `/pedidos` +  `/${accountId}`, Pedidos)
 }
 
-getOne(codigo: number) {
-  return this.http.get<Pedidos>(this.basePedidoUrl + `/${codigo}`)
+getOne(codigo: number, accountId: any) {
+  return this.http.get<Pedidos>(this.basePedidoUrl + `/pedidos/${codigo}` + `/${accountId}`)
 }
 
-delete(codigo: number) : Observable<any> {
-  return this.http.delete<any>(this.basePedidoUrl + `/${codigo}`)
+delete(codigo: number, accountId: any) : Observable<any> {
+  return this.http.delete<any>(this.basePedidoUrl + `/pedidos/${codigo}` + `/${accountId}`)
 }
 
-changeAtivoPedidos(codigo: number) : Observable<any> {
-  return this.http.patch<any>(this.basePedidoUrl + `/${codigo}` + "/ativo", null)
+changeAtivoPedidos(codigo: number, accountId: any) : Observable<any> {
+  return this.http.patch<any>(this.basePedidoUrl + `/pedidos/${codigo}` + "/ativo" + `/${accountId}`, null)
 }
 }
 
