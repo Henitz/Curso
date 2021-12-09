@@ -24,6 +24,9 @@ import { PedidoOneComponent } from './pedidos/pedido-one/pedido-one.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
+import { AuthGuard } from './_services/auth-guard.service';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +55,7 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule,
     ChartsModule,
   ],
-  providers: [SelectService],
+  providers: [SelectService, AuthGuard, authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
