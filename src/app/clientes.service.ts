@@ -23,7 +23,7 @@ export class ClientesService {
   }
 
   getOne(id: number, accountId: any) {
-    return this.http.get<Clientes>(this.baseClienteUrl +  + `/clientes/${id}` + `/${accountId}`)
+    return this.http.get<Clientes>(this.baseClienteUrl + `/clientes/${id}` + `/${accountId}`)
   }
 
   delete(id: number, accountId: any) : Observable<Mensagem> {

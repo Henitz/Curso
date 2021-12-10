@@ -58,10 +58,7 @@ export class PedidoFormComponent implements OnInit {
   save() {
     // this.service.save(this.cliente).subscribe(c=>{this.cliente=c; this.success = true})
     console.log('Salvar');
-    this.service.save(this.pedidos, this.accountId).subscribe((c) => {
-      this.router.navigate(['/pedidos']);
-      this.success = true;
-    });
+    this.service.save(this.pedidos, this.accountId).subscribe(c => {this.router.navigate(['/pedidos']);this.success = true;});
     //this.service.save(this.cliente).subscribe(c=>{this.router.navigate(['/clientes'])})
   }
 }
