@@ -5,6 +5,7 @@ import { faEye, faPencilAlt, faPlusSquare, faTrash } from '@fortawesome/free-sol
 import { Pedidos } from 'src/app/pedidos';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
+
 @Component({
   selector: 'app-pedido-list',
   templateUrl: './pedido-list.component.html',
@@ -14,6 +15,7 @@ export class PedidoListComponent implements OnInit {
 
 
   pedidos: Pedidos[] = [];
+
   pedidoSelecionadoExibir = new Pedidos();
   pedidoSelecionadoDelete = new Pedidos();
   pedidoSelecionadoAtivar = new Pedidos();

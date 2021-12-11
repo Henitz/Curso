@@ -13,7 +13,9 @@ export class ProdutosService {
 
   constructor(private http: HttpClient) { }
 
-
+  update(codigo: number, Produtos: Produtos, accountId: any ) {
+    return this.http.put(this.baseProdutoUrl + `/produtos/${codigo}` + `/${accountId}`, Produtos)
+  }
 
   getAll(accountId: any): Observable<Produtos[]> {
     return this.http.get<Produtos[]>(this.baseProdutoUrl +  `/produtos/${accountId}`)

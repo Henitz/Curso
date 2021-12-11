@@ -62,16 +62,11 @@ export class FormComponent implements OnInit {
    if(!this.id){
     console.log(" NAO TEM ID PORTANTO EH NOVO POSTMAPPING")
     this.service.save(this.cliente, this.accountId).subscribe(c=>{this.router.navigate(['/clientes']); this.success = true})
-  }
-  if(this.id){
+    }
+   if(this.id){
     console.log("  TEM ID PORTANTO EH ALTERACAO PUTMAPPING")
-    /* this.service.update(this.id, this.cliente,this.accountId).subscribe(c=>{this.router.navigate(['/clientes']); this.success = true}) */
-  }
-
-
-
-
-
+     this.service.update(this.id, this.cliente,this.accountId).subscribe(c=>{this.router.navigate(['/clientes']); this.success = true})
+    }
    //this.service.save(this.cliente).subscribe(c=>{this.router.navigate(['/clientes'])})
   }
 }

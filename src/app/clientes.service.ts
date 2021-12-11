@@ -34,8 +34,8 @@ export class ClientesService {
     return this.http.patch<any>(this.baseClienteUrl + `/clientes/${id}` + "/ativo" +  `/${accountId}`, null)
   }
 
-  /* update(id: (id: number, accountId: any ) {
+  update(id: number, Clientes: Clientes, accountId: any ) {
     return this.http.put(this.baseClienteUrl + `/clientes/${id}` + `/${accountId}`, Clientes)
-  } */
+  }
 
 }

@@ -42,21 +42,28 @@ export class ProdutoFormComponent implements OnInit {
               .subscribe(
                 response => this.produtos = response ,
                 errorResponse => this.produtos = new Produtos()
-              )
+              );
       }
-    })
-
-
-
-
-
+    });
   }
 
   save() {
 
     // this.service.save(this.cliente).subscribe(c=>{this.cliente=c; this.success = true})
-    this.service.save(this.produtos, this.accountId).subscribe(c=>{this.router.navigate(['/produtos']); this.success = true})
+   // this.service.save(this.produtos, this.accountId).subscribe(c=>{this.router.navigate(['/produtos']); this.success = true})
     //this.service.save(this.cliente).subscribe(c=>{this.router.navigate(['/clientes'])})
+    if(!this.codigo){
+      console.log(" NAO TEM ID PORTANTO EH NOVO POSTMAPPING")
+      this.service.save(this.produtos, this.accountId).subscribe(c=>{this.router.navigate(['/produtos']); this.success = true})
+      }
+     if(this.codigo){
+      console.log("  TEM ID PORTANTO EH ALTERACAO PUTMAPPING")
+       this.service.update(this.codigo, this.produtos,this.accountId).subscribe(c=>{this.router.navigate(['/produtos']); this.success = true})
+      }
+
+
+
+
    }
 
 }

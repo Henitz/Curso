@@ -8,6 +8,8 @@ import { Pedidos } from './pedidos';
   providedIn: 'root'
 })
 export class PedidosService {
+
+
   private basePedidoUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
@@ -15,6 +17,10 @@ export class PedidosService {
 
 getAll(accountId: any): Observable<Pedidos[]> {
   return this.http.get<Pedidos[]>(this.basePedidoUrl + `/pedidos/${accountId}`)
+}
+
+update(codigo: number, Pedidos: Pedidos, accountId: any ) {
+  return this.http.put(this.basePedidoUrl + `/pedidos/${codigo}` + `/${accountId}`, Pedidos)
 }
 
 save(Pedidos: Pedidos, accountId: any) {
