@@ -66,7 +66,7 @@ export class PedidoFormComponent implements OnInit {
       }
      if(this.codigo){
       console.log("  TEM ID PORTANTO EH ALTERACAO PUTMAPPING")
-       this.service.update(this.codigo, this.pedidos,this.accountId).subscribe(c=>{this.router.navigate(['/pedidos']); this.success = false})
+       this.service.update(this.codigo, this.pedidos,this.accountId).subscribe(c=>{this.router.navigate(['/pedidos']); this.success = true})
       }
 
   }
