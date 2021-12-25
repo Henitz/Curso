@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
+      this.direcionaCerto();
     }
   }
 
@@ -42,6 +43,10 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = true;
       }
     );
+  }
+
+  direcionaCerto(){
+    this.router.navigate(['dash'])
   }
 
   reloadPage() {

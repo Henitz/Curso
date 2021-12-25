@@ -17,7 +17,7 @@ import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'dash', pathMatch: 'full'},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'clientes/form', component: FormComponent},
   {path: 'clientes', component: ListComponent},
   {path: 'dash', component: DashComponent},

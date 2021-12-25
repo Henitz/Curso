@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ClientesService } from '../clientes.service';
+import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
   selector: 'app-dash',
@@ -8,11 +10,15 @@ import { ClientesService } from '../clientes.service';
 })
 export class DashComponent implements OnInit {
 
-  constructor(
-    private service: ClientesService,
-  ) { }
+  isLoggedIn = false;
+
+  constructor(private tokenStorageService: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    if(!this.isLoggedIn){
+      this.router.navigate(['login'])
+    }
   }
 
 }
